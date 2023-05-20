@@ -1,11 +1,11 @@
-const { Matchup } = require('../models');
+const { Matchup } = require("../models");
 
 module.exports = {
   async createMatchup({ body }, res) {
     const matchup = await Matchup.create(body);
 
     if (!matchup) {
-      return res.status(400).json({ message: 'Unable to create matchup' });
+      return res.status(400).json({ message: "Unable to create matchup" });
     }
 
     res.status(200).json(matchup);
@@ -18,7 +18,7 @@ module.exports = {
     );
 
     if (!vote) {
-      return res.status(400).json({ message: 'Unable to vote on matchup' });
+      return res.status(400).json({ message: "Unable to vote on matchup" });
     }
 
     res.status(200).json(vote);
@@ -27,7 +27,7 @@ module.exports = {
     const allMatchups = await Matchup.find({});
 
     if (!allMatchups) {
-      return res.status(400).json({ message: 'No matchups found' });
+      return res.status(400).json({ message: "No matchups found" });
     }
 
     res.status(200).json(allMatchups);
@@ -36,7 +36,7 @@ module.exports = {
     const matchup = await Matchup.findOne({ _id: params.id });
 
     if (!matchup) {
-      return res.status(400).json({ message: 'No matchup found by that id' });
+      return res.status(400).json({ message: "No matchup found by that id" });
     }
 
     res.status(200).json(matchup);
