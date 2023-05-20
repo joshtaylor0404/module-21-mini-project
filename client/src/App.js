@@ -6,6 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Home from "./pages/Home";
 import Matchup from "./pages/Matchup";
 import Vote from "./pages/Vote";
+import NotFound from "./pages/NotFound";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/matchup" element={<Matchup />} />
             <Route path="/matchup/:id" element={<Vote />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </Router>
